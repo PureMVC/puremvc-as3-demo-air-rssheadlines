@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ PureMVC AS3 Demo – AIR RSS Headlines
+ Copyright (c) 2007 Simon Bailey <simon.bailey@puremvc.org>
+ Your reuse is governed by the Creative Commons Attribution 3.0 License
+-->
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"
+		   width="371" height="108" backgroundColor="#FFFFFF" cornerRadius="8" borderStyle="solid" borderThickness="2">
+		   
+	<mx:Label x="4.5" y="10" text="Newtriks RSS Reader" fontWeight="bold" fontSize="30" color="#6392BD"/>
+	
+	<mx:Label x="107.5" y="60" color="#606060" width="154" height="28" text=".... LOADING FEED!" fontWeight="bold" fontSize="14"/>
+	
+</mx:Canvas>

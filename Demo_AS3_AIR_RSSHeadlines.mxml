@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ PureMVC AS3 Demo – AIR RSS Headlines
+ Copyright (c) 2007 Simon Bailey <simon.bailey@puremvc.org>
+ Your reuse is governed by the Creative Commons Attribution 3.0 License
+-->
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				xmlns:view="org.puremvc.as3.demos.air.rssheadlines.view.components.*" 
+				layout="absolute"
+				width="375" height="191"
+				paddingTop="0"
+				paddingLeft="0"
+				horizontalAlign="center"
+				horizontalScrollPolicy="off"
+				verticalScrollPolicy="off"
+				creationComplete="facade.startup(this)">
+
+	<mx:Style> 
+	   Application 
+	   {
+	      background-color:""; 
+	      background-image:""; 
+	      padding: 0px;
+	   }
+	</mx:Style>
+	
+	<mx:Script>
+		<![CDATA[
+			
+			import org.puremvc.as3.demos.air.rssheadlines.ApplicationFacade;
+			
+			/**
+			 * Get reference to the main ApplicationFacade singleton instance
+			 */
+			private var facade:ApplicationFacade = ApplicationFacade.getInstance();
+			
+		]]>
+	</mx:Script>
+	
+	<view:RSSWrapper id="rssWrapper" x="0" y="0" height="100%" width="100%"/>
+	
+</mx:Application>

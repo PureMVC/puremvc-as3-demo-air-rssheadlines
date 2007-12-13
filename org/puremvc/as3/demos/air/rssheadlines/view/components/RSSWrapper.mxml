@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ PureMVC AS3 Demo – AIR RSS Headlines
+ Copyright (c) 2007 Simon Bailey <simon.bailey@puremvc.org>
+ Your reuse is governed by the Creative Commons Attribution 3.0 License
+-->
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"
+			  xmlns:view="org.puremvc.as3.demos.air.rssheadlines.view.components.*"
+			  currentState="{(got_feed)?'rss_view':''}">
+			  
+	<mx:states>
+		<mx:State name="rss_view">
+			<mx:RemoveChild target="{splashScreen}"/>
+			<mx:AddChild position="lastChild" creationPolicy="all">
+				<view:Viewer id="viewContainer" y="22" x="0"/>
+			</mx:AddChild>
+		</mx:State>
+	</mx:states>
+	
+	<!-- Transitions for the screen -->
+    <mx:transitions>
+        <mx:Transition id="inTransition" fromState="*" toState="rss_view">
+            <mx:Parallel target="{this}">
+			    <mx:WipeDown duration="800"/>
+			</mx:Parallel>
+        </mx:Transition>
+        <mx:Transition id="outTransition" fromState="rss_view" toState="*">
+            <mx:Parallel target="{this}">
+			    <mx:WipeUp duration="800"/>
+			</mx:Parallel>
+        </mx:Transition>
+    </mx:transitions>
+	
+	<mx:Script>
+		<![CDATA[
+			
+			[Bindable] public var got_feed:Boolean = false;
+			
+		]]>
+	</mx:Script>
+	
+	<view:SplashScreen id="splashScreen" x="3" y="32" />
+
+	<view:WindowControls id="windowControls" x="0" y="0"/>
+	
+</mx:Canvas>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ PureMVC AS3 Demo – AIR RSS Headlines
+ Copyright (c) 2007 Simon Bailey <simon.bailey@puremvc.org>
+ Your reuse is governed by the Creative Commons Attribution 3.0 License
+-->
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" 
+		   width="375" height="22"
+		   currentState="{(feedChange)?'feed_change':''}">
+	<mx:states>
+		<mx:State name="feed_change">
+			<mx:RemoveChild target="{label1}"/>
+			<mx:RemoveChild target="{label2}"/>
+			<mx:RemoveChild target="{i_slider}"/>
+			<mx:RemoveChild target="{feed_btn}"/>
+			<mx:RemoveChild target="{min_btn}"/>
+			<mx:RemoveChild target="{close_btn}"/>
+			<mx:RemoveChild target="{label3}"/>
+			<mx:AddChild position="lastChild">
+				<mx:Label x="3" y="2" text="RSS Feed URL:"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:TextInput x="96" y="1" fontSize="9" height="20" width="177" id="url_txt"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Label id="submit_btn" 
+						  x="280" y="2" 
+						  text="Submit" 
+						  fontWeight="bold" 
+						  useHandCursor="true"
+						  buttonMode="true" 
+						  mouseChildren="false" 
+						  click="submit( SUBMIT )"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Label id="cancel_btn"
+						  x="327" y="2" 
+						  text="Cancel" 
+						  fontWeight="bold" 
+						  useHandCursor="true"
+			              buttonMode="true" 
+			              mouseChildren="false" 
+			              click="submit( CANCEL )"/>
+			</mx:AddChild>
+			
+		</mx:State>
+	</mx:states>
+	
+	<!-- Transitions for the menu bar -->
+    <mx:transitions>
+        <mx:Transition id="inTransition" fromState="*" toState="feed_change">
+            <mx:Parallel target="{this}">
+			    <mx:WipeLeft duration="800"/>
+			</mx:Parallel>
+        </mx:Transition>
+        <mx:Transition id="outTransition" fromState="feed_change" toState="*">
+            <mx:Parallel target="{this}">
+			    <mx:WipeRight duration="800"/>
+			</mx:Parallel>
+        </mx:Transition>
+    </mx:transitions>
+
+	<mx:Metadata>
+		[Event('close')]
+		[Event('min')]
+		[Event('drag')]
+		[Event('feed')]
+		[Event('interval')]
+		[Event('submit')]
+		[Event('cancel')]
+	</mx:Metadata>
+	
+	<mx:Script>
+		<![CDATA[
+			
+			import flash.events.*;
+			
+			public static const CLOSE:String     = "close";
+			public static const MIN:String       = "min";
+			public static const DRAG:String      = "drag";
+			public static const FEED:String      = "feed";
+			public static const INTERVAL:String  = "interval";
+			public static const SUBMIT:String    = "submit";
+			public static const CANCEL:String    = "cancel";
+			
+			[Bindable] public var feedChange:Boolean = false;
+			
+			private function submit( action:String ):void
+			{
+				switch ( action )
+				{
+					case CLOSE:
+						dispatchEvent( new Event( CLOSE ) );
+						break;
+					case MIN:
+						dispatchEvent( new Event( MIN ) );
+						break;
+					case DRAG:
+						dispatchEvent( new Event( DRAG ) );
+						break;
+					case FEED:
+						dispatchEvent( new Event( FEED ) );
+					case INTERVAL:
+						dispatchEvent( new Event( INTERVAL ) );
+						break;
+					case SUBMIT:
+						dispatchEvent( new Event( SUBMIT ) );
+						break;
+					case CANCEL:
+						dispatchEvent( new Event( CANCEL ) );
+						break;
+
+				}
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Button id="drag_btn"
+			   width="375" height="22"
+			   x="0" y="0"
+			   color="#FFFFFF"
+			   toolTip="Drag"
+			   mouseDown="submit( DRAG )" fillAlphas="[1.0, 1.0]" fillColors="[#6392BD, #8FB1D1, #8FB1D1, #6392BD]" themeColor="#7FC1FF"/>
+			   
+	<mx:Button id="close_btn" 
+			   width="16" height="16"
+			   x="355" y="3"
+			   icon="@Embed(source='../../../../../../../../assets/icons/close_icon.png')"
+			   useHandCursor="true"
+			   buttonMode="true" 
+			   mouseChildren="false"
+	    	   toolTip="Close"
+	    	   click="submit( CLOSE )"/>
+	    	   
+	<mx:Button id="min_btn" 
+			   width="16" height="16"
+			   x="335" y="3"
+			   icon="@Embed(source='../../../../../../../../assets/icons/minimize_icon.png')"
+			   useHandCursor="true"
+			   buttonMode="true" 
+			   mouseChildren="false"
+	    	   toolTip="Minimise"
+	    	   click="submit( MIN )"/>
+	    	   
+	<mx:Button id="feed_btn" 
+			   width="16" height="16"
+			   x="313" y="3"
+			   icon="@Embed(source='../../../../../../../../assets/icons/url_icon.png')"
+			   useHandCursor="true"
+			   buttonMode="true" 
+			   mouseChildren="false"
+	    	   toolTip="Change Feed"
+	    	   click="submit( FEED )"/>
+	
+	<mx:HSlider id="i_slider"
+				x="122" y="-1" 
+				height="17" width="124" 
+				minimum="1"
+				maximum="10"
+				allowTrackClick="true"
+				snapInterval="1"
+				dataTipPlacement="top" 
+				change="submit( INTERVAL )"/>
+	<mx:Label x="99" y="3" text="1s" id="label2"/>
+	<mx:Label x="249" y="3" text="10s" id="label3"/>
+	<mx:Label x="3" y="3" text="Adjust Interval:" id="label1"/>
+	    	   
+</mx:Canvas>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ PureMVC AS3 Demo – AIR RSS Headlines
+ Copyright (c) 2007 Simon Bailey <simon.bailey@puremvc.org>
+ Your reuse is governed by the Creative Commons Attribution 3.0 License
+-->
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" 
+		  layout="absolute" width="375" height="168"
+		  horizontalScrollPolicy="off"
+		  verticalScrollPolicy="off"
+		  borderColor="#FFFFFF"
+		  borderAlpha="1"
+		  roundedBottomCorners="true"
+		  cornerRadius="8"
+		  dropShadowEnabled="false"
+		  title="{feedArticle.subject}">
+		  
+	<mx:Script>
+		<![CDATA[
+		
+			import flash.events.*;
+			import flash.net.URLRequest;
+			
+			import org.puremvc.as3.demos.air.rssheadlines.model.vo.FeedVO;
+			
+			[Bindable] public var feedArticle:FeedVO;
+			
+			public static const ARTICLE_LINK:String = "articleLink";
+			
+			private function goToURL( who:String ):void
+			{
+				var u:URLRequest;
+				if( who != null )
+				{
+				    u = new URLRequest( feedArticle.articlelink );
+			 	} else {
+			 		u = new URLRequest( "http://www.nutrixinteractive.com/blog" );
+			 	}
+			 	navigateToURL(u,"_blank");
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<!-- ARTICLE BODY TEXT -->
+	<mx:TextArea id="articlebody" htmlText="{feedArticle.articlebody}" 
+		         x="10" y="-3" width="335" height="118" 
+		         borderThickness="0" focusAlpha="0"  fontSize="9"/>
+		         
+	<!-- FEED LINK TEXT -->
+	<mx:Text id="articlelink" text="..click and read more" 
+		     x="10" y="116" width="128" 
+		     fontWeight="bold" color="#6392BD" fontSize="10" 
+		     useHandCursor="true" buttonMode="true" mouseChildren="false" click="goToURL( ARTICLE_LINK )"  height="20"/>
+		     
+</mx:TitleWindow>
