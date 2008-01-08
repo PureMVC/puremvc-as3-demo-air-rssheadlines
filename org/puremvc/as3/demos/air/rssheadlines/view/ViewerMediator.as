@@ -28,9 +28,6 @@ package org.puremvc.as3.demos.air.rssheadlines.view
 		public function ViewerMediator( viewComponent:Object )
 		{
 			super( viewComponent );
-			
-			// Retrieve the instance of the applications ResProxy
-			serviceProxy = facade.retrieveProxy( ServiceProxy.NAME ) as ServiceProxy;
 		}
 		
 		override public function getMediatorName():String

@@ -75,7 +75,7 @@ package org.puremvc.as3.demos.air.rssheadlines.model
 			change_feed = false;
 			
 			var resultXML:XML = XML( urlLoader.data );
-			
+			trace(resultXML);
 			var rss:Namespace = new Namespace("http://purl.org/rss/1.0/");
 	       
 		        for each(var item:XML in resultXML..rss::item)
