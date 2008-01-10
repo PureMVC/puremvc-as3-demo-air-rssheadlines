@@ -11,8 +11,6 @@ package org.puremvc.as3.demos.air.rssheadlines.controller
 	import org.puremvc.interfaces.INotification;
 	import org.puremvc.patterns.command.SimpleCommand;
 	
-	import org.puremvc.as3.demos.air.rssheadlines.model.vo.FeedVO;
-	import org.puremvc.as3.demos.air.rssheadlines.model.ServiceProxy;
 	import org.puremvc.as3.demos.air.rssheadlines.ApplicationFacade;
 
 	public class ErrorCommand extends SimpleCommand implements ICommand
