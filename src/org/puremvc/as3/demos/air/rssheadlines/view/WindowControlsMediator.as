@@ -7,12 +7,12 @@ package org.puremvc.as3.demos.air.rssheadlines.view
 {
 	import flash.events.*;
 	
-	import org.puremvc.as3.interfaces.IMediator;
-	import org.puremvc.as3.patterns.mediator.Mediator;
-
 	import org.puremvc.as3.demos.air.rssheadlines.ApplicationFacade;
 	import org.puremvc.as3.demos.air.rssheadlines.model.ServiceProxy;
 	import org.puremvc.as3.demos.air.rssheadlines.view.components.WindowControls;
+	import org.puremvc.as3.interfaces.IMediator;
+	import org.puremvc.as3.patterns.mediator.Mediator;
+	import org.puremvc.as3.utilities.air.desktopcitizen.controller.WindowCloseCommand;
 	
 
 	public class WindowControlsMediator extends Mediator implements IMediator
@@ -42,6 +42,7 @@ package org.puremvc.as3.demos.air.rssheadlines.view
 		
 		private function onClose( e:Event ):void
 		{
+			sendNotification( WindowCloseCommand.NAME );
 			windowControls.stage.nativeWindow.close();
 		}
 		

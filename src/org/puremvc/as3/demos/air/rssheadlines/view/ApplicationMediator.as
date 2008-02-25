@@ -8,17 +8,18 @@ package org.puremvc.as3.demos.air.rssheadlines.view
 	import org.puremvc.as3.interfaces.IMediator;
 	import org.puremvc.as3.interfaces.INotification;
 	import org.puremvc.as3.patterns.mediator.Mediator;
-
+	import org.puremvc.as3.utilities.air.desktopcitizen.DesktopCitizenConstants;
+	
+	import org.puremvc.as3.demos.air.rssheadlines.*;
 	import org.puremvc.as3.demos.air.rssheadlines.ApplicationFacade;
 	import org.puremvc.as3.demos.air.rssheadlines.view.components.RSSWrapper;
-	
 
-	public class RSSWrapperMediator extends Mediator implements IMediator
+	public class ApplicationMediator extends Mediator implements IMediator
 	{
 		
-		public static const NAME:String = "RSSWrapperMediator";
+		public static const NAME:String = "ApplicationMediator";
 		
-		public function RSSWrapperMediator( viewComponent:Object )
+		public function ApplicationMediator( viewComponent:Object )
 		{
 			super( NAME, viewComponent );
 			
@@ -26,14 +27,20 @@ package org.puremvc.as3.demos.air.rssheadlines.view
 			facade.registerMediator( new WindowControlsMediator ( rssWrapper.windowControls ) );
 		}
 		
-		public function get rssWrapper():RSSWrapper
+		public function get app():RSSHeadlines
 		{
-			return viewComponent as RSSWrapper;
+			return viewComponent as RSSHeadlines;
 		}
 		
+		public function get rssWrapper():RSSWrapper
+		{
+			return app.rssWrapper as RSSWrapper;
+		}
+
 		override public function listNotificationInterests():Array
 		{
 			return [
+					DesktopCitizenConstants.WINDOW_READY,
 					ApplicationFacade.XML_DATA,
 					ApplicationFacade.CHANGE_FEED
 				   ];
@@ -43,6 +50,9 @@ package org.puremvc.as3.demos.air.rssheadlines.view
 		{
 			switch ( note.getName() )
 			{
+				case DesktopCitizenConstants.WINDOW_READY:
+					app.showControls = true;
+					break;
 				case ApplicationFacade.XML_DATA:
 					rssWrapper.got_feed = true;
 					break;

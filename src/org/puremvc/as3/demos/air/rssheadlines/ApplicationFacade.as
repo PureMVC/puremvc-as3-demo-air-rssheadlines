@@ -5,11 +5,14 @@
  */
 package org.puremvc.as3.demos.air.rssheadlines
 {
-	import org.puremvc.as3.demos.air.rssheadlines.controller.*;
-	
 	import org.puremvc.as3.interfaces.IFacade;
 	import org.puremvc.as3.patterns.facade.Facade;
-	import org.puremvc.as3.patterns.observer.Notification;
+
+	import org.puremvc.as3.utilities.air.desktopcitizen.DesktopCitizenConstants;
+	import org.puremvc.as3.utilities.air.desktopcitizen.controller.WindowOpenCommand;
+	import org.puremvc.as3.utilities.air.xmldb.controller.PersistDataCommand;
+
+	import org.puremvc.as3.demos.air.rssheadlines.controller.*;
 
 	public class ApplicationFacade extends Facade implements IFacade
 	{
@@ -53,6 +56,8 @@ package org.puremvc.as3.demos.air.rssheadlines
 			registerCommand( INTERVAL, IntervalCommand );
 			registerCommand( ERROR, ErrorCommand );
 			registerCommand( CHANGE_FEED, ChangeFeedCommand );
+			
+			registerCommand( DesktopCitizenConstants.WINDOW_OPEN, WindowOpenCommand );
 		}
 		
 	}
