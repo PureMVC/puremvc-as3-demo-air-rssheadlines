@@ -1,6 +1,6 @@
 /*
  PureMVC AS3 Demo – AIR RSS Headlines 
- Copyright (c) 2007 Simon Bailey <simon.bailey@puremvc.org>
+ Copyright (c) 2007-08 Simon Bailey <simon.bailey@puremvc.org>
  Your reuse is governed by the Creative Commons Attribution 3.0 License
  */
 package org.puremvc.as3.demos.air.rssheadlines.model.vo
