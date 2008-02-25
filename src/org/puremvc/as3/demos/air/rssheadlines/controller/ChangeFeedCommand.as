@@ -7,19 +7,19 @@ package org.puremvc.as3.demos.air.rssheadlines.controller
 {
 	import org.puremvc.as3.demos.air.rssheadlines.model.ServiceProxy;
 	
-	import org.puremvc.interfaces.ICommand;
-	import org.puremvc.interfaces.INotification;
-	import org.puremvc.patterns.command.SimpleCommand;
+	import org.puremvc.as3.interfaces.ICommand;
+	import org.puremvc.as3.interfaces.INotification;
+	import org.puremvc.as3.patterns.command.SimpleCommand;
 
-	public class IntervalCommand extends SimpleCommand implements ICommand
+	public class ChangeFeedCommand extends SimpleCommand implements ICommand
 	{
 		
 		override public function execute( note:INotification ):void
 		{	
      		var serviceProxy:ServiceProxy = facade.retrieveProxy( ServiceProxy.NAME ) as ServiceProxy;
-     		var duration:uint = note.getBody() as uint;
+     		var url:String = note.getBody() as String;
      		
-     		serviceProxy.setDuration( duration );
+     		serviceProxy.setURL( url );
 		}
 	}
 }

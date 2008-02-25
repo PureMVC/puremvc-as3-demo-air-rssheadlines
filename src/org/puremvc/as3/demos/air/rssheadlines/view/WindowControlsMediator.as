@@ -5,14 +5,15 @@
  */
 package org.puremvc.as3.demos.air.rssheadlines.view
 {
+	import flash.events.*;
+	
+	import org.puremvc.as3.interfaces.IMediator;
+	import org.puremvc.as3.patterns.mediator.Mediator;
+
 	import org.puremvc.as3.demos.air.rssheadlines.ApplicationFacade;
 	import org.puremvc.as3.demos.air.rssheadlines.model.ServiceProxy;
 	import org.puremvc.as3.demos.air.rssheadlines.view.components.WindowControls;
 	
-	import flash.events.*;
-	
-	import org.puremvc.interfaces.IMediator;
-	import org.puremvc.patterns.mediator.Mediator;
 
 	public class WindowControlsMediator extends Mediator implements IMediator
 	{
@@ -20,7 +21,7 @@ package org.puremvc.as3.demos.air.rssheadlines.view
 		
 		public function WindowControlsMediator( viewComponent:Object )
 		{
-			super( viewComponent );
+			super( NAME, viewComponent );
 			
 			windowControls.addEventListener( WindowControls.CLOSE, onClose );
 			windowControls.addEventListener( WindowControls.MIN, onMin );
@@ -32,11 +33,6 @@ package org.puremvc.as3.demos.air.rssheadlines.view
 			
 			var serviceProxy:ServiceProxy = facade.retrieveProxy( ServiceProxy.NAME ) as ServiceProxy;
 			windowControls.i_slider.value = Math.round(serviceProxy.duration/1000);
-		}
-		
-		override public function getMediatorName():String
-		{
-			return NAME;
 		}
 		
 		public function get windowControls():WindowControls

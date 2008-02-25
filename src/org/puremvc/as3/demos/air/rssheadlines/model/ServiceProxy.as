@@ -5,19 +5,18 @@
  */
 package org.puremvc.as3.demos.air.rssheadlines.model
 {
-	import org.puremvc.as3.demos.air.rssheadlines.ApplicationFacade;
-	import org.puremvc.as3.demos.air.rssheadlines.model.vo.FeedVO;
-	
 	import flash.events.*;
 	import flash.net.*;
 	import flash.utils.*;
 	
 	import mx.collections.ArrayCollection;
 	
-	import org.puremvc.interfaces.IProxy;
-	import org.puremvc.patterns.proxy.Proxy;
-	import org.puremvc.interfaces.INotification;
+	import org.puremvc.as3.interfaces.IProxy;
+	import org.puremvc.as3.patterns.proxy.Proxy;
+	import org.puremvc.as3.interfaces.INotification;
 	
+	import org.puremvc.as3.demos.air.rssheadlines.model.vo.FeedVO;
+	import org.puremvc.as3.demos.air.rssheadlines.ApplicationFacade;
 
 	public class ServiceProxy extends Proxy implements IProxy
 	{	

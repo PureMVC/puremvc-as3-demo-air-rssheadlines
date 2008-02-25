@@ -7,9 +7,9 @@ package org.puremvc.as3.demos.air.rssheadlines
 {
 	import org.puremvc.as3.demos.air.rssheadlines.controller.*;
 	
-	import org.puremvc.interfaces.IFacade;
-	import org.puremvc.patterns.facade.Facade;
-	import org.puremvc.patterns.observer.Notification;
+	import org.puremvc.as3.interfaces.IFacade;
+	import org.puremvc.as3.patterns.facade.Facade;
+	import org.puremvc.as3.patterns.observer.Notification;
 
 	public class ApplicationFacade extends Facade implements IFacade
 	{
@@ -40,9 +40,9 @@ package org.puremvc.as3.demos.air.rssheadlines
 			return instance as ApplicationFacade;
 		}
 		
-		public function startup( app:Demo_AS3_AIR_RSSHeadlines ):void
+		public function startup( app:RSSHeadlines ):void
 		{
-			notifyObservers( new Notification( STARTUP, app ) );
+			sendNotification( STARTUP, app );
 		}
 		
 		override protected function initializeController():void

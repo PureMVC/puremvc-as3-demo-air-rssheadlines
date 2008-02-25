@@ -7,9 +7,9 @@ package org.puremvc.as3.demos.air.rssheadlines.controller
 {
 	import mx.controls.Alert;
 	
-	import org.puremvc.interfaces.ICommand;
-	import org.puremvc.interfaces.INotification;
-	import org.puremvc.patterns.command.SimpleCommand;
+	import org.puremvc.as3.interfaces.ICommand;
+	import org.puremvc.as3.interfaces.INotification;
+	import org.puremvc.as3.patterns.command.SimpleCommand;
 	
 	import org.puremvc.as3.demos.air.rssheadlines.ApplicationFacade;
 

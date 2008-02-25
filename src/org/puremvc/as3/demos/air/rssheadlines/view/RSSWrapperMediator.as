@@ -5,12 +5,13 @@
  */
 package org.puremvc.as3.demos.air.rssheadlines.view
 {
+	import org.puremvc.as3.interfaces.IMediator;
+	import org.puremvc.as3.interfaces.INotification;
+	import org.puremvc.as3.patterns.mediator.Mediator;
+
 	import org.puremvc.as3.demos.air.rssheadlines.ApplicationFacade;
 	import org.puremvc.as3.demos.air.rssheadlines.view.components.RSSWrapper;
 	
-	import org.puremvc.interfaces.IMediator;
-	import org.puremvc.interfaces.INotification;
-	import org.puremvc.patterns.mediator.Mediator;
 
 	public class RSSWrapperMediator extends Mediator implements IMediator
 	{
@@ -19,15 +20,10 @@ package org.puremvc.as3.demos.air.rssheadlines.view
 		
 		public function RSSWrapperMediator( viewComponent:Object )
 		{
-			super( viewComponent );
+			super( NAME, viewComponent );
 			
 			facade.registerMediator( new ViewerMediator ( rssWrapper.viewContainer ) );			
 			facade.registerMediator( new WindowControlsMediator ( rssWrapper.windowControls ) );
-		}
-		
-		override public function getMediatorName():String
-		{
-			return NAME;
 		}
 		
 		public function get rssWrapper():RSSWrapper

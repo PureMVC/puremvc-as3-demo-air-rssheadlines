@@ -13,7 +13,7 @@
 				horizontalAlign="center"
 				horizontalScrollPolicy="off"
 				verticalScrollPolicy="off"
-				creationComplete="facade.startup(this)">
+				creationComplete="//facade.startup(this)">
 
 	<mx:Style> 
 	   Application 

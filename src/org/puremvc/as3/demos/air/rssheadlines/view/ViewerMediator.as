@@ -5,17 +5,17 @@
  */
 package org.puremvc.as3.demos.air.rssheadlines.view
 {
+	import flash.utils.Timer;
+	
+	import org.puremvc.as3.interfaces.IMediator;
+	import org.puremvc.as3.interfaces.INotification;
+	import org.puremvc.as3.patterns.mediator.Mediator;
+
 	import org.puremvc.as3.demos.air.rssheadlines.ApplicationFacade;
 	import org.puremvc.as3.demos.air.rssheadlines.model.ServiceProxy;
 	import org.puremvc.as3.demos.air.rssheadlines.model.vo.FeedVO;
 	import org.puremvc.as3.demos.air.rssheadlines.view.components.Viewer;
 	
-	import flash.utils.Timer;
-	
-	import org.puremvc.interfaces.IMediator;
-	import org.puremvc.interfaces.INotification;
-	import org.puremvc.patterns.mediator.Mediator;
-
 	public class ViewerMediator extends Mediator implements IMediator
 	{
 		public static const NAME:String = 'ViewerMediator';
@@ -27,7 +27,7 @@ package org.puremvc.as3.demos.air.rssheadlines.view
 		
 		public function ViewerMediator( viewComponent:Object )
 		{
-			super( viewComponent );
+			super( NAME, viewComponent );
 		}
 		
 		override public function getMediatorName():String
