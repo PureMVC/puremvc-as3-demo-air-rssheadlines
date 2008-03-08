@@ -14,7 +14,7 @@
 	horizontalAlign="center"
 	horizontalScrollPolicy="off"
 	verticalScrollPolicy="off"
-	applicationComplete="facade.startup(this)">
+	applicationComplete="facade.startup(this)" viewSourceURL="srcview/index.html">
 
 	<mx:Style> 
 	   Application 
