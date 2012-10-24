@@ -7,7 +7,7 @@ This demo illustrates the use of PureMVC with AIR to fetch an RSS feed, and disp
 ![PureMVC AS3 Demo: RSS Headlines](http://puremvc.org/pages/images/screenshots/PureMVC-Shot-AS3-AIR-RSSHeadlines.png)
 
 ## Status
-Production - [Version 1.2](https://github.com/PureMVC/puremvc-as3-demo-air-rssheadlines/blob/master/version.txt)
+Production - [Version 1.2](https://github.com/PureMVC/puremvc-as3-demo-air-rssheadlines/blob/master/VERSION)
 
 ## PureMVC Utilities Used
 * [Desktop Citizen](https://github.com/PureMVC/puremvc-as3-util-air-desktopcitizen/wiki)
