@@ -19,8 +19,8 @@ Production - [Version 1.2](https://github.com/PureMVC/puremvc-as3-demo-air-rsshe
 * [AIR](http://en.wikipedia.org/wiki/Adobe_AIR)
 
 ## License
-* PureMVC AIR Demo - RSS Headlines - Copyright(c) 2007 Simon Bailey
-* PureMVC - Copyright(c) 2007-2008 Futurescale, Inc.
+* PureMVC AIR Demo - RSS Headlines - Copyright © 2007 Simon Bailey
+* PureMVC - Copyright © 2007-2008 Futurescale, Inc.
 All rights reserved.
 
 * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
